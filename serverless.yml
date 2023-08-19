@@ -8,8 +8,6 @@ provider:
   deploymentBucket:
     name: cohort2.serverless.deploys
 
-
-
 functions:
   api:
     handler: index.handler
@@ -17,6 +15,8 @@ functions:
       - httpApi:
           path: /
           method: get
+    environment:
+      ACCESS_KEY: ${ssm:sangee-parameter}
 
 plugins:
   -serverless-offline
